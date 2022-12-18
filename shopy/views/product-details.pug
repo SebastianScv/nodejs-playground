@@ -1,0 +1,12 @@
+// Display the product in a box
+.product
+    a(href="/products/view/"+product.id)
+        // Display the product's image
+        img.product__image(src=product.image, alt='image')
+        // Display the product's title
+        h2.product__title= 'Title: ' + product.title
+        // Display the product's description
+        p.product__description= 'Description: ' + product.description
+        p.product__description= 'Price: ' + product.price
+        .buttons
+            block extraButtons

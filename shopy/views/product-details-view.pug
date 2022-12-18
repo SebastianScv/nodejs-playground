@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  .container
+    .row
+      .col-md-6
+        .card
+          img.img-fluid(src=product.image)
+          h1= product.title
+          p= product.description
+          p.price
+            | Price: #{product.price}
+          form(method='post' action='/cart/add/' + product.id)
+            input(type='hidden' name='productId' value=product.id)
+            button.btn.btn-primary.add-to-cart-btn(type='submit') Add to Cart
+
+block styles
+    link(rel='stylesheet', href='/css/products.css')

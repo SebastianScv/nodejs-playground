@@ -1,0 +1,17 @@
+.registration {
+    max-width: 1000px;
+    margin: 0 auto; 
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.registration__item {
+    display: block;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0; 
+    box-sizing: border-box; 
+    border: 1px solid #ccc; 
+    border-radius: 4px;
+}

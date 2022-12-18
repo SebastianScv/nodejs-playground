@@ -1,0 +1,16 @@
+extends ../layout
+
+block content
+  h1 Administration Products
+  
+  if products.length == 0
+    p.no-products No products to display.
+  else
+    div.products__container
+      each product in products
+        include ../product-details      
+            block extraButtons 
+                a.edit-button(href='/products/edit/' + product.id) Edit
+                a.delete-button(href='/products/delete/' + product.id) Delete
+block styles
+  link(rel='stylesheet', href='/css/products.css')

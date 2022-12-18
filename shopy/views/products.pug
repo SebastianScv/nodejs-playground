@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1 All Products
+
+  // Check if the products array is empty
+  if products.length == 0
+    p.no-products No products to display.
+  else
+    // Set up the flex container for the products
+    div.products__container
+      // Loop over the products
+      each product in products
+        // Include the product details
+        include product-details
+
+block styles
+  link(rel='stylesheet', href='/css/products.css')

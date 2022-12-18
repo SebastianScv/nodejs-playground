@@ -1,0 +1,14 @@
+nav
+  a(href='/', class=(href === '/' ? 'active' : '')) Shop
+  a(href='/products', class=(href === '/products' ? 'active' : '')) Products
+  a(
+    href='/admin/add-product',
+    ,
+    class=(href === '/add-product' ? 'active' : '')
+  ) Add Product
+  a(
+    href='/admin/products',
+    ,
+    class=(href === '/admin/products' ? 'active' : '')
+  ) Admin Products
+  a(href='/cart', class=(href === '/cart' ? 'active' : '')) Cart
