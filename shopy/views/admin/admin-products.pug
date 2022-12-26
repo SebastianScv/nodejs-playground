@@ -10,7 +10,14 @@ block content
       each product in products
         include ../product-details      
             block extraButtons 
-                a.edit-button(href='/products/edit/' + product.id) Edit
-                a.delete-button(href='/products/delete/' + product.id) Delete
+                a.edit-button(href='/products/edit/' + product.id + '?edit=true') Edit
+                form(action='/admin/product/delete' method='POST')
+                  input#productId.registration__item(
+                    type='hidden',
+                    name='productId',
+                    value=product ? product.id : '',
+                    required
+                  )
+                  button.delete-button(type='submit') Delete
 block styles
   link(rel='stylesheet', href='/css/products.css')

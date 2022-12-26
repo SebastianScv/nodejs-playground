@@ -1,6 +1,17 @@
 version: '3'
 
 services:
+  db:
+    image: mysql:8.0.31
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: shopy
+      MYSQL_ALLOW_EMPTY_PASSWORD: yes
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
   app:
     build: .
     command: npm run start
@@ -9,3 +20,8 @@ services:
       - .:/shopy-app
     ports:
       - "3000:3000"
+    depends_on:
+      - db
+
+volumes:
+  db_data:
