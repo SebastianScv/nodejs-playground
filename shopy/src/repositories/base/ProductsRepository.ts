@@ -26,6 +26,10 @@ export class ProductsRepository extends BaseRepository<Product> {
         this.database = database
     }
 
+    async deleteProduct(id: any) {
+        return await super.delete(ProductsRepository.TABLE, id)
+    }
+
     async findOne(id: any) {
         return await super.findOne(ProductsRepository.TABLE, id)
     }
@@ -36,5 +40,9 @@ export class ProductsRepository extends BaseRepository<Product> {
 
     async createProduct(item: Product) {
         return await super.create(ProductsRepository.TABLE, item)
+    }
+
+    async editProduct(item: Product) {
+        return await super.update(ProductsRepository.TABLE, item.id, item)
     }
 }

@@ -1,11 +1,15 @@
 import { Request, Response } from 'express';
-import Product from '../models/Product';
+import { ProductsRepository } from '../repositories/base/ProductsRepository';
 
-export function getOverview(req: Request, res: Response, next: Function) {
-  Product.fetchAll((products: any) => {
+export async function getOverview(req: Request, res: Response, next: Function) {
+  try {
+    const products = await ProductsRepository.getInstance().findAll()
     res.render('overview-products', {
       href: '/',
       products,
     });
-  });
+  } catch (error) {
+    console.log('No Products')
+    res.redirect('/')
+  }
 }

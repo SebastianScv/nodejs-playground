@@ -1,6 +1,13 @@
 version: '3'
 
 services:
+  mongodb:
+    image: mongo:4.4.1
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+
   db:
     image: mysql:8.0.31
     environment:
@@ -22,6 +29,9 @@ services:
       - "3000:3000"
     depends_on:
       - db
+      - mongodb
+
 
 volumes:
   db_data:
+  mongodb_data:

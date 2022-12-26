@@ -14,7 +14,7 @@ export class MySQLDatabase implements IDatabase {
         });
 
         this._connection = pool.promise()
-        console.log('CONNECTION SUCCESS TO DB')
+        console.log('Connected successfully to DB.')
     }
     async create(table: string, item: any): Promise<boolean> {
         try {

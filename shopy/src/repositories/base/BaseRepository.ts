@@ -6,11 +6,11 @@ export abstract class BaseRepository<T> {
     protected async create(table: string, item: any): Promise<boolean> {
         return await this.database.create(table, item)
     }
-    update(id: string, item: T): Promise<boolean> {
-        throw new Error("Method not implemented.");
+    async update(table: string, id: any, item: any): Promise<boolean> {
+        return await this.database.update(table, id, item)
     }
-    delete(id: string): Promise<boolean> {
-        throw new Error("Method not implemented.");
+    async delete(table: string, id: string): Promise<boolean> {
+        return await this.database.delete(table, id);
     }
     async find(table: string, id: string): Promise<T[]> {
         return await this.database.find(table, id)
